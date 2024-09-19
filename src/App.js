@@ -5,10 +5,16 @@ const[value, setValue]= useState('')
 const handleChange=(e)=>{
   setValue(e.target.value)
 }
-  return (
+ const [checked, setChecked]= useState(true)
+ const toggleCheck=()=>{
+  setChecked(!checked)
+ }
+return (
     <form>
    <textarea value={value} onChange={handleChange}/>
-   <button type='submit'>Envoyer</button>
+  <input type='checkbox' checked={checked} onChange={toggleCheck}/>
+   {checked && <button type='submit'>Envoyer</button>}
+   
    </form>
   )
 }
