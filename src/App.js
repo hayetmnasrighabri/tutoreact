@@ -1,28 +1,26 @@
-import { useState } from "react";
+import React, { useState } from 'react'
 
 function App() {
-  const [person, setPerson] = useState({
-    firstName: 'john',
-    lastName: 'Doe',
-    age:18
-  })
-const IncrementeAge=()=>{
-  setPerson({...person, age: person.age+1})
-}
-
-
-const [count, setCount]= useState(0) 
-const IncrementeCount=()=>{
-   setCount(count+1)
-}
+  const [firstName, setFirstName] = useState("john Doe")
+  const handleChange=(e)=>{
+    setFirstName(e.target.value)
+  }
+  const handleReset=()=>{
+    setFirstName('')
+  }
   return (
-    <>
-    <p>age de {person.firstName}: {person.age}</p>
-    <button onClick={IncrementeAge}>Gagner une année</button>
-    <p>compteur: {count}</p>
-    <button onClick={IncrementeCount}>Incrementer</button>
-   </>
-);
+    <form>
+      <input type='text'
+             name='firstName'
+             value={firstName}
+             onChange={handleChange}
+           />
+           {firstName}
+        <button type='submit' onClick={handleReset}>reset</button>
+    </form>
+      
+    
+  )
 }
 
-export default App;
+export default App
