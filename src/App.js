@@ -1,6 +1,6 @@
 import { LoremIpsum} from 'react-lorem-ipsum';
-const title= "bonjour les gens"
-const showTitle= true
+//const title= "bonjour les gens"
+//const showTitle= true
 const todos=[
   'présenter react',
   'présenter le jsx',
@@ -13,14 +13,8 @@ function App() {
  // }
   return (
     <>
-    {showTitle ?
-     <h1 type="text" className="title" 
-     style={{color:"red", backgroundColor: "beige"}}>
-      {title}
-      </h1>
-      : <p>demo</p>
-    }
-       
+    
+       <Title color="green" />
       <input type="text"/>
       <LoremIpsum p={2} />
       
@@ -37,5 +31,8 @@ function App() {
    </>
 );
 }
-
+function Title ({color}){
+  return(
+  <h1 style={{color: color}}>bonjour les  gens</h1>
+)}
 export default App;
