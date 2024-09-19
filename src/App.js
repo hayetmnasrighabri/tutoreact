@@ -1,6 +1,11 @@
 import { LoremIpsum} from 'react-lorem-ipsum';
 const title= "bonjour les gens"
 const showTitle= true
+const todos=[
+  'présenter react',
+  'présenter le jsx',
+  'créer des composants'
+]
 function App() {
   //const handleClick=(e)=>{
     //e.preventDefault()
@@ -17,10 +22,20 @@ function App() {
     }
        
       <input type="text"/>
-      <LoremIpsum p={3} />
+      <LoremIpsum p={2} />
       
-    </>
-  );
+    
+   <ul>
+    {
+      todos.map((todo)=>
+      <li key={todo}>
+        {todo}
+      </li>
+      )
+    }
+   </ul>
+   </>
+);
 }
 
 export default App;
