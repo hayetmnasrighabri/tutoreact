@@ -13,7 +13,7 @@ return (
     <form>
    <textarea value={value} onChange={handleChange}/>
   <input type='checkbox' checked={checked} onChange={toggleCheck}/>
-   {checked && <button type='submit'>Envoyer</button>}
+   <button type='submit' disabled={!checked}>Envoyer</button>
    
    </form>
   )
