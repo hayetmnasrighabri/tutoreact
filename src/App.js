@@ -1,42 +1,28 @@
-import { LoremIpsum} from 'react-lorem-ipsum';
-//const title= "bonjour les gens"
-//const showTitle= true
-const todos=[
-  'présenter react',
-  'présenter le jsx',
-  'créer des composants'
-]
+import { useState } from "react";
+
 function App() {
-  //const handleClick=(e)=>{
-    //e.preventDefault()
-    //alert("j'ai cliqué sur le titre")
- // }
+  const [person, setPerson] = useState({
+    firstName: 'john',
+    lastName: 'Doe',
+    age:18
+  })
+const IncrementeAge=()=>{
+  setPerson({...person, age: person.age+1})
+}
+
+
+const [count, setCount]= useState(0) 
+const IncrementeCount=()=>{
+   setCount(count+1)
+}
   return (
     <>
-    
-       <Title color="green" hidden>Mon Composant</Title>
-      <input type="text"/>
-      <LoremIpsum p={2} />
-      
-    
-   <ul>
-    {
-      todos.map((todo)=>
-      <li key={todo}>
-        {todo}
-      </li>
-      )
-    }
-   </ul>
+    <p>age de {person.firstName}: {person.age}</p>
+    <button onClick={IncrementeAge}>Gagner une année</button>
+    <p>compteur: {count}</p>
+    <button onClick={IncrementeCount}>Incrementer</button>
    </>
 );
 }
-function Title ({color, children, hidden}){
-  if (hidden)
-  {
-    return null
-  }
-  return(
-  <h1 style={{color: color}}>{children}</h1>
-)}
+
 export default App;
