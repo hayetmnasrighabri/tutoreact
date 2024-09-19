@@ -14,7 +14,7 @@ function App() {
   return (
     <>
     
-       <Title color="green">Mon Composant</Title>
+       <Title color="green" hidden>Mon Composant</Title>
       <input type="text"/>
       <LoremIpsum p={2} />
       
@@ -31,7 +31,11 @@ function App() {
    </>
 );
 }
-function Title ({color, children}){
+function Title ({color, children, hidden}){
+  if (hidden)
+  {
+    return null
+  }
   return(
   <h1 style={{color: color}}>{children}</h1>
 )}
